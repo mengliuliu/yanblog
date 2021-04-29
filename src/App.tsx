@@ -1,22 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import Home from 'src/pages/home'
+import * as actions from 'src/actions'
+import { StoreState } from 'src/types'
+import { connect, DispatchProp} from 'react-redux'
 import './App.css';
+
+
+export function mapStateToProps({ enthusiasmLevel,languageName  }: StoreState){
+  return {
+      enthusiasmLevel,
+      name: languageName
+  }
+} 
+
+export function mapDispatchToProps( dispatch: DispatchProp<actions.EnthusiasmAction>){
+  return {
+    // onIncrement: () => dispatch(actions.incrementEnthusiasm()),
+    // onDecrement: () => dispatch(actions.decrementEnthusiasm())
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-       <p>自动部署</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Home name='yhf' enthusiasmLevel={2} />
     </div>
   );
 }
