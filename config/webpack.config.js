@@ -19,9 +19,9 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const paths = require('./config/paths');
-const modules = require('./config/modules');
-const getClientEnvironment = require('./config/env');
+const paths = require('./paths');
+const modules = require('./modules');
+const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
@@ -333,8 +333,6 @@ module.exports = function (webpackEnv) {
           'react-dom$': 'react-dom/profiling',
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
-        utils: path.resolve(__dirname, 'src/utils'),
-        src: path.resolve(__dirname,'src'),
         ...(modules.webpackAliases || {}),
       },
       plugins: [

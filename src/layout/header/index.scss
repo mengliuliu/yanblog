@@ -1,0 +1,16 @@
+
+.header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    background-color: #fff !important;
+    z-index: 999;
+    margin-bottom: 10px;
+    .header_top{
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}
+
