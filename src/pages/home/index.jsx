@@ -1,10 +1,10 @@
 import React from 'react'
 import { Layout } from 'antd';
-import { List, Avatar, Space } from 'antd';
+import { List, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, EyeOutlined } from '@ant-design/icons';
 import './index.scss'
 
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
 
 const listData = [];
