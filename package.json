@@ -44,6 +44,7 @@
     "jest-watch-typeahead": "0.6.1",
     "less": "^4.1.1",
     "less-loader": "^8.1.1",
+    "markdown-navbar": "^1.4.3",
     "mini-css-extract-plugin": "0.11.3",
     "node-sass": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "5.0.4",
@@ -123,7 +124,6 @@
     ],
     "testEnvironment": "jsdom",
     "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
-    
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",

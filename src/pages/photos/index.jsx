@@ -9,6 +9,7 @@ const Photos = () => {
 
     for (let i = 0; i < 8; i++) {
         listData.push({
+            id: i,
             img: 'https://hblyan.oss-cn-beijing.aliyuncs.com/blog/ChMkJ1fJVSuIJa8nABRXPbS61xoAAU92AOZ08oAFFdV279.jpg',
             title: '相册-' + i,
             description: '这是描述相册的内容'
@@ -19,17 +20,17 @@ const Photos = () => {
             <Row gutter={24}>
                 {
                     listData.map(item =>
-                        <Col span={6}>
+                        <Col
+                            key={item.id}
+                            span={6}>
                             <Card
                                 hoverable
-                                style={{ marginBottom: '20px'}}
+                                style={{ marginBottom: '20px' }}
                                 cover={<img alt="example" src={item.img} />}
                             >
                                 <Meta title={item.title} description={item.description} />
                             </Card>
                         </Col>
-
-
                     )
                 }
             </Row>

@@ -1,15 +1,16 @@
 import React from 'react'
-import { Layout } from 'antd';
+import { Button, Layout } from 'antd';
 import { List, Space } from 'antd';
+import { useHistory } from 'react-router'
 import { MessageOutlined, LikeOutlined, EyeOutlined } from '@ant-design/icons';
 import './index.scss'
 
 const { Content } = Layout;
 
-
 const listData = [];
 for (let i = 0; i < 23; i++) {
     listData.push({
+        id: i,
         href: 'https://ant.design',
         title: `关于react的学习笔记 ${i}`,
         avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -20,6 +21,7 @@ for (let i = 0; i < 23; i++) {
     });
 }
 const Home = () => {
+    const history = useHistory()
 
     const IconText = ({ icon, text }) => (
         <Space>
@@ -60,7 +62,9 @@ const Home = () => {
                             }
                         >
                             <List.Item.Meta
-                                title={<a href={item.href}>{item.title}</a>}
+                                title={<Button type='link' style={{padding: 0,fontSize: '20px',color: '#000'}} onClick={() => {
+                                    history.push('/article/' + item.id)
+                                }}>{item.title}</Button>}
                                 description={'2021-05-05 by 颜2愣子'}
                             />
                             {item.content}

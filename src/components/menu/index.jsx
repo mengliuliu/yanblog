@@ -1,17 +1,26 @@
 import { Menu } from 'antd';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useHistory } from 'react-router'
 import './index.scss'
 
 
 const Nav = () => {
     const history = useHistory()
-    const [currentkey,setCurrentkey] = useState(['home'])
+    const [currentkey,setCurrentkey] = useState()
     const handClick = (e) => {
         console.log(e.key);
         setCurrentkey([e.key])
-        history.push(`/${e.key}`)
+        if(e.key === 'home'){
+            history.push(`/`)
+
+        }else{
+            history.push(`/${e.key}`)
+        }
     }
+
+    useEffect(() => {
+        setCurrentkey([history.location.pathname.split('/')[1]])
+    },[])
 
     return (
             <Menu
