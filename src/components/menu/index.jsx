@@ -18,8 +18,10 @@ const Nav = () => {
         }
     }
 
-    useEffect(() => {
-        setCurrentkey([history.location.pathname.split('/')[1]])
+    useEffect(() => { 
+
+        // console.log(history)
+        // setCurrentkey([history.location.pathname.split('/')[1]])
     },[])
 
     return (

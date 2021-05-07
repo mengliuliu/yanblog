@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import { Button, Layout,Typography } from 'antd';
+import { Layout,Typography } from 'antd';
 import './index.scss'
 
 const Article = () => {

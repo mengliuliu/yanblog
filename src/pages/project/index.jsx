@@ -3,7 +3,6 @@ import './index.scss'
 
 const Project = () => {
     const listData = [];
-    const { Meta } = Card;
 
     for (let i = 0; i < 8; i++) {
         listData.push({
