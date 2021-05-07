@@ -6,7 +6,7 @@ import './index.scss'
 
 const Nav = () => {
     const history = useHistory()
-    const [currentkey,setCurrentkey] = useState([history.location.pathname.split('/')[1]])
+    const [currentkey,setCurrentkey] = useState([history.location.pathname.split('/')[1] === ''?'home': history.location.pathname.split('/')[1]])
     const handClick = (e) => {
         console.log(e.key);
         setCurrentkey([e.key])
@@ -16,11 +16,11 @@ const Nav = () => {
         }else{
             history.push(`/${e.key}`)
         }
-    }
-
-
+    } 
+    
 
     return (
+        
             <Menu
                 mode='horizontal'
                 className='nav'
