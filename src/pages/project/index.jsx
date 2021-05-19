@@ -1,4 +1,3 @@
-import { Card, Row, Col } from 'antd';
 import './index.scss'
 
 const Project = () => {
@@ -14,24 +13,8 @@ const Project = () => {
     }
     return (
         <div>
-            <Row gutter={24}>
-                {
-                    listData.map(item =>
-                        <Col
-                            key={item.id}
-                            span={6}>
-                            <Card
-                                className='project_item'
-                                title={item.title}
-                                style={{backgroundColor: ''}}
-                            >
-
-                            </Card>
-                        </Col>
-                    )
-                }
-            </Row>
-        </div>
+            项目 
+         </div>
     )
 }
 

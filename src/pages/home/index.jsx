@@ -1,83 +1,63 @@
 import React from 'react'
-import { Button, Layout } from 'antd';
-import { List, Space } from 'antd';
-import { useHistory } from 'react-router'
-import { MessageOutlined, LikeOutlined, EyeOutlined } from '@ant-design/icons';
+import { Card, Grid, Avatar } from '@material-ui/core'
+import Pagination from '@material-ui/lab/Pagination'
 import './index.scss'
+import ListItem from './components/listCard'
+import { makeStyles } from '@material-ui/core/styles'
 
-const { Content } = Layout;
-
-const listData = [];
-for (let i = 0; i < 23; i++) {
-    listData.push({
-        id: i,
-        href: 'https://ant.design',
-        title: `关于react的学习笔记 ${i}`,
-        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-        description:
-            'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-        content:
-            'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    });
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  display: 'flex',
+	  '& > *': {
+		margin: theme.spacing(1),
+	  },
+	},
+	small: {
+	  width: theme.spacing(3),
+	  height: theme.spacing(3),
+	},
+	large: {
+	  width: theme.spacing(7),
+	  height: theme.spacing(7),
+	  margin: 'auto',
+	  transform: 'translateY(-50%)'
+	},
+  }));
+const listData = []
+for (let i = 0; i <4; i++) {
+	listData.push({
+		id: i,
+		author: 'Mr.yan',
+		title: `关于react的学习笔记 ${i}`,
+		img: 'https://hblyan.oss-cn-beijing.aliyuncs.com/work/20210519151138.jpeg',
+		descriptions:
+			'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+	})
 }
 const Home = () => {
-    const history = useHistory()
-
-    const IconText = ({ icon, text }) => (
-        <Space>
-            {React.createElement(icon)}
-            {text}
-        </Space>
-    );
-
-    return (
-        <Layout>
-            <Content>
-                <List
-                    itemLayout="vertical"
-                    size="large"
-                    pagination={{
-                        onChange: page => {
-                            console.log(page);
-                        },
-                        pageSize: 5,
-
-                    }}
-                    dataSource={listData}
-
-                    renderItem={item => (
-                        <List.Item
-                            key={item.title}
-                            actions={[
-                                <IconText icon={EyeOutlined} text="156" key="list-vertical-star-o" />,
-                                <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                                <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                            ]}
-                            extra={
-                                <img
-                                    width={272}
-                                    alt="logo"
-                                    src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                                />
-                            }
-                        >
-                            <List.Item.Meta
-                                title={<Button type='link' style={{padding: 0,fontSize: '20px',color: '#000'}} onClick={() => {
-                                    history.push('/article/' + item.id)
-                                }}>{item.title}</Button>}
-                                description={'2021-05-05 by 颜2愣子'}
-                            />
-                            {item.content}
-                        </List.Item>
-                    )}
-                />,
-                </Content>
-            {/* <Sider>
-                123
-                </Sider> */}
-        </Layout>
-
-    )
+	const classes = useStyles();
+	return (
+		<Grid container>
+			<Grid item md={8}>
+				{listData.map(item => {
+					return (
+						<ListItem title={item.title} img={item.img} author={item.author} descriptions={item.descriptions}/>				)
+				})}
+				<div className='pagination'>
+					<Pagination
+						count={10}
+						variant='outlined'
+						shape='rounded'></Pagination>
+				</div>
+			</Grid>
+			<Grid item md={4}>
+				<Card className="info">
+					<div className="top_bg"></div>
+					<Avatar alt='这是我帅气的头像' className={classes.large} src='https://assets.gitlab-static.net/uploads/-/system/user/avatar/7358519/avatar.png?width=90'/>
+				</Card>
+			</Grid>
+		</Grid>
+	)
 }
 
 export default Home
