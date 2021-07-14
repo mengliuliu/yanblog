@@ -1,16 +1,23 @@
-
-.header{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    background-color: #fff !important;
-    z-index: 999;
-    margin-bottom: 10px;
-    .header_top{
-        text-align: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    }
+.header {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0 !important;
+	padding: 0 !important;
+	height: auto !important;
+	background-color: #fff !important;
+	z-index: 999;
+	.title {
+		font-family: monospace;
+		padding: 10px 0;
+	}
+	.link {
+		display: flex;
+		align-items: center;
+		height: 100%;
+        justify-content: flex-end;
+		a {
+			color: #999;
+			padding-right: 20px;
+		}
+	}
 }
-

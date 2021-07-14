@@ -1,7 +1,3 @@
-import { Card, Col, Row } from 'antd';
-
-const { Meta } = Card;
-
 const Photos = () => {
 
     const listData = [];
@@ -17,24 +13,7 @@ const Photos = () => {
     }
     return (
         <div className='photos'>
-            <Row gutter={24}>
-                {
-                    listData.map(item =>
-                        <Col
-                            key={item.id}
-                            span={6}>
-                            <Card
-                                hoverable
-                                style={{ marginBottom: '20px' }}
-                                cover={<img alt="example" src={item.img} />}
-                            >
-                                <Meta title={item.title} description={item.description} />
-                            </Card>
-                        </Col>
-                    )
-                }
-            </Row>
-
+            相册
         </div>
     )
 }
