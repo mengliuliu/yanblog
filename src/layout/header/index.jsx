@@ -14,7 +14,7 @@ const Head = () => {
 		<Grid container className='header'>
 			<Grid item md={4} sm={4}>
 				<Typography className='title' variant='h4' align='left'>
-					YAN · blog 
+					YAN · blog 123123123
 				</Typography>
 			</Grid>
 			<Grid item md={8} sm={8}>
