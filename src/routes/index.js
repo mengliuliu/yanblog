@@ -35,6 +35,8 @@ import CRUD from './Business/CRUD';
 import CRUDDetail from './Business/CRUD/routers/Detail';
 import Image from './UI/Image';
 
+import Users from './Users'
+
 /**
  * 主路由配置
  * 
@@ -63,6 +65,7 @@ const routesConfig = app => [
     indexRoute: '/dashboard',
     childRoutes: [
       Dashboard(app),
+      Users(app),
       Blank(app),
       Toolbar(app),
       Column(),
@@ -92,7 +95,7 @@ const routesConfig = app => [
       Banner(app),
       LevelRoute(app),
       Image(),
-      NotFound()
+      NotFound(),
     ]
   }
 ];

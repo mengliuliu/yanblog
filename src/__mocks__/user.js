@@ -202,6 +202,11 @@ export default ({fetchMock, delay, mock, toSuccess, toError}) => {
           }
         ],
       },
+      {
+        name: '用户管理',
+        icon: 'UserOutlined',
+        path: '/users'
+      }
     ], 400)
   } 
 }
