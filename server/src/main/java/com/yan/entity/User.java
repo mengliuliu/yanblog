@@ -28,19 +28,18 @@ public class User implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String username;
+    private String username;  //用户名
 
-    private String avatar;
+    private String avatar; //头像
 
-    private String email;
+    private String email; //邮箱
 
-    private String password;
+    private String password; //密码
 
-    private Integer status;
+    private Integer status; //状态
 
-    private LocalDateTime created;
+    private LocalDateTime created; //创建时间
 
-    private LocalDateTime lastLogin;
-
+    private LocalDateTime lastLogin; //最后一次登录时间
 
 }
