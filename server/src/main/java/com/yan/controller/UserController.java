@@ -5,6 +5,7 @@ import com.yan.entity.User;
 import com.yan.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -69,7 +70,4 @@ public class UserController {
             return Result.Fail("删除失败");
         }
     }
-
-
-
 }
