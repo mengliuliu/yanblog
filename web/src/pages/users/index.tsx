@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import UserApiModules from 'api/users'
+import AddOrEditForm from './components/addOrEditForm';
 
 const useStyles = makeStyles({
     table: {
@@ -18,6 +19,8 @@ const useStyles = makeStyles({
 });
 const Users: React.FC = () => {
     const [dataSource, setDataSource] = useState<[]>([])
+    const [open, setOpen] = useState<boolean>(false)
+    const classes = useStyles()
 
     useEffect(() => {
         getUserList()
@@ -32,8 +35,13 @@ const Users: React.FC = () => {
             .catch(error => console.error(error)
             )
     }
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
-    const classes = useStyles()
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
@@ -49,7 +57,7 @@ const Users: React.FC = () => {
                 </TableHead>
                 <TableBody>
                     {dataSource.map((item: any) => (
-                        <TableRow key={item.username}>
+                        <TableRow key={item.id}>
                             <TableCell component="th" scope="row">
                                 {item.id}
                             </TableCell>
@@ -66,7 +74,10 @@ const Users: React.FC = () => {
                                 {item.lastLogin || "- - "}
                             </TableCell>
                             <TableCell component="th" scope="row">
-                                <Button variant="contained" color="primary">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={handleOpen}>
                                     修改
                                 </Button>
                             </TableCell>
@@ -74,6 +85,7 @@ const Users: React.FC = () => {
                     ))}
                 </TableBody>
             </Table>
+            <AddOrEditForm open={open} handleClose={handleClose} />
         </TableContainer>
     )
 }

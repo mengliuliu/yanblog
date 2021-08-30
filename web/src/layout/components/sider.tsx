@@ -10,7 +10,6 @@ import logo from '../../static/images/logo.jpg'
 const useStyles = makeStyles({
     root: {
         height: '100vh',
-        marginRight: '10px',
     },
     logo: {
         padding: '5px 10px',
