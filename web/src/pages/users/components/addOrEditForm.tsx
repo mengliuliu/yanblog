@@ -4,6 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -37,19 +38,41 @@ interface props {
 
 const AddOrEditForm = (props: props) => {
     const classes = useStyles()
+    const { register, handleSubmit } = useForm()
     const [modalStyle] = useState(getModalStyle);
     const { open, handleClose } = props
     const body = (
         <Grid container style={modalStyle} className={classes.paper}>
-            <form className={classes.root} noValidate autoComplete="off">
+            <form className={classes.root}
+                noValidate autoComplete="off"
+                onSubmit={handleSubmit(
+                    value => {
+                        console.info(value);
+                    }
+                )}>
                 <Grid item md={12}>
-                    <TextField id="userName" label="用户名" className={classes.input} />
+                    <TextField
+                        required
+                        name="userName"
+                        label="用户名"
+                        className={classes.input}
+                    />
                 </Grid>
                 <Grid item md={12}>
-                    <TextField id="pwd" label="密码" className={classes.input} />
+                    <TextField
+                        required
+                        name="pwd"
+                        label="密码"
+                        className={classes.input}
+                    />
                 </Grid>
                 <Grid item md={12}>
-                    <TextField id="email" label="邮箱" className={classes.input} />
+                    <TextField
+                        required
+                        name="email"
+                        label="邮箱"
+                        className={classes.input}
+                    />
                 </Grid>
                 <Grid item md={12}>
                     <Button
@@ -61,6 +84,7 @@ const AddOrEditForm = (props: props) => {
                     <Button
                         variant="contained"
                         color="primary"
+                        type='submit'
                         className={classes.button}>
                         创建
                     </Button>
