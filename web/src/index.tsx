@@ -2,12 +2,13 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import './styles/normalize.css'
+import './styles/normalize.css';
+import 'antd/dist/antd.css'; 
 import {Switch, Route ,HashRouter} from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import routes from 'router/routes';
 import { GlobalLoadingProvider, GlobalLoadingContext } from 'contexts/globalLoading';
-import Layout from './layout'
+import Layout from './layout';
 
 const App: React.FC = () => {
   const { loading } = useContext(GlobalLoadingContext);

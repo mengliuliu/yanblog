@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
@@ -34,13 +34,28 @@ const useStyles = makeStyles((theme: Theme) =>
 interface props {
     open: boolean
     handleClose: () => void
+    data: any
 }
 
 const AddOrEditForm = (props: props) => {
     const classes = useStyles()
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, setValue } = useForm()
     const [modalStyle] = useState(getModalStyle);
-    const { open, handleClose } = props
+    const { open, handleClose, data } = props
+
+    useEffect(() => {
+        if (data) {
+            setValue('userName', data.username, {
+                shouldValidate: true,
+                shouldDirty: true,
+            })
+            setValue('email', data.email, {
+                shouldValidate: true,
+                shouldDirty: true,
+            })
+        }
+    }, [open])
+
     const body = (
         <Grid container style={modalStyle} className={classes.paper}>
             <form className={classes.root}
@@ -53,6 +68,7 @@ const AddOrEditForm = (props: props) => {
                 <Grid item md={12}>
                     <TextField
                         required
+                        {...register('userName')}
                         name="userName"
                         label="用户名"
                         className={classes.input}
@@ -61,15 +77,7 @@ const AddOrEditForm = (props: props) => {
                 <Grid item md={12}>
                     <TextField
                         required
-                        name="pwd"
-                        label="密码"
-                        className={classes.input}
-                    />
-                </Grid>
-                <Grid item md={12}>
-                    <TextField
-                        required
-                        name="email"
+                        {...register('email')}
                         label="邮箱"
                         className={classes.input}
                     />
