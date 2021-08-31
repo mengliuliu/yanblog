@@ -1,5 +1,6 @@
 import Home from "../pages/home";
 import Users from "../pages/users";
+import Blogs from '../pages/blogs'
 
 const routes = [
   {
@@ -9,6 +10,10 @@ const routes = [
   {
     path: "/users",
     component: Users,
+  },
+  {
+    path: "/blogs",
+    component: Blogs,
   },
 ];
 

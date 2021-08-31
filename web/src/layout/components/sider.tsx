@@ -23,7 +23,7 @@ const options = [
     {
         icon: 'DescriptionIcon',
         name: '文章管理',
-        path: '/article',
+        path: '/blogs',
     },
     {
         icon: 'FaceIcon',
