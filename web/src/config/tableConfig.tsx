@@ -5,7 +5,7 @@ import {
 
 const pageColumns: { [str: string]: { [str: string]: any;[index: number]: string } } = {
     user: ['id', 'username', 'email', 'avatar', 'status', 'created', 'lastLogin', 'operation'],
-    blog: ['id', 'title', 'description', 'created'],
+    blog: ['id', 'title', 'description', 'created','operation'],
 }
 
 const columnsDetail: { [str: string]: { [index: string]: any } } = {
