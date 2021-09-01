@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Table, Button, Space } from 'antd';
 import { getColumnsByPageName } from 'src/config/tableConfig'
+import OperatingArea from 'src/components/OperatingArea/OperatingArea'
 import BlogsApiModules from 'api/blog'
 
 const Blogs: React.FC = () => {
@@ -34,14 +35,25 @@ const Blogs: React.FC = () => {
     const getcloumn = () => {
         const extend = {
             operation: {
-                render: () => 
-                <Button type='primary'>修改</Button>,
+                render: () =>
+                    <Button
+                        type='primary'
+
+                    >修改</Button>,
             },
         }
         return getColumnsByPageName('blog', extend)
     }
     return (
         <div>
+            <OperatingArea>
+                <Button
+                    type='primary'
+                    onClick={() => {
+                        window.location.href = '#/addArticle'
+                    }}
+                >新增文章</Button>
+            </OperatingArea>
             <Table columns={getcloumn()} dataSource={dataSource} />
         </div>
     )

@@ -1,6 +1,7 @@
-import Home from "../pages/home";
-import Users from "../pages/users";
-import Blogs from '../pages/blogs'
+import Home from "src/pages/home";
+import Users from "src/pages/users";
+import Blogs from 'src/pages/blogs'
+import AddOrEditForm from "src/pages/blogs/components/AddOrEditForm";
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "/blogs",
     component: Blogs,
+  },
+  {
+    path: "/addArticle",
+    component: AddOrEditForm,
   },
 ];
 
