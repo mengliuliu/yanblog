@@ -1,33 +1,80 @@
-import { useState } from 'react'
-import { Form, Input, Button } from 'antd'
+import { useState, useRef } from 'react'
+import { Form, Input, Button, message } from 'antd'
 import styled from 'styled-components'
 // 引入编辑器样式
 import 'braft-editor/dist/index.css'
 // 引入编辑器组件
 import BraftEditor from 'braft-editor'
-import OperatingArea from 'src/components/OperatingArea/OperatingArea'
-
+import BlogModuleApi from 'api/blog'
 
 const AddOrEditForm: React.FC<any> = () => {
     const [content, setContent] = useState<any>('')
+    const [form] = Form.useForm<any>()
+    const editBox = useRef<any>()
+    const handSubmit = () => {
+        form.validateFields()
+            .then(res => {
+                res.userId = 1
+                res.content = content;
+                BlogModuleApi.addBlog(res)
+                    .then((data:any) => {
+                        message.success(data.message)
+                        window.location.href = '#/blogs'
+                    })
+                    .catch(err => console.info(err))
+            })
+            .catch(error => console.info(error))
+    }
+
+    const handChange = (value: any) => {
+        setContent(value.toHTML())
+    }
 
     return (
         <Box>
-            <Form>
-                <Form.Item label='标题' name='title'>
-                    <Input type="text" />
+            <Form form={form}>
+                <Form.Item
+                    rules={[
+                        { required: true, message: '请输入标题' },
+                    ]}
+                    label='标题'
+                    name='title'
+                >
+                    <Input type="text" placeholder='请输入标题' />
                 </Form.Item>
-                <Form.Item label='描述' name='description'>
-                    <Input type="text" />
+                <Form.Item
+                    rules={[
+                        { required: true, message: '请输入描述' },
+                    ]}
+                    label='描述'
+                    name='description'
+                >
+                    <Input type="text" placeholder='请输入描述' />
                 </Form.Item>
-                <Form.Item label='内容' name='content'>
+                <Form.Item
+                    rules={[
+                        { required: true, message: '请输入封面地址' },
+                    ]}
+                    label='封面'
+                    name='coverImg'
+                >
+                    <Input type="text" placeholder='请输入封面地址' />
+                </Form.Item>
+                <Form.Item
+                    label='内容'
+                    name='content'
+                >
                     <div className='content'>
-                        <BraftEditor value={content} onChange={value => setContent(value)} />
+                        <BraftEditor
+                            ref={editBox}
+                            value={content}
+                            onChange={handChange}
+                        />
                     </div>
                 </Form.Item>
                 <div className="btn">
                     <Button>返回</Button>
-                    <Button type='primary'>提交</Button>
+                    <Button type='primary' onClick={handSubmit}>提交</Button>
                 </div>
 
 

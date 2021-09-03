@@ -7,11 +7,7 @@ import com.yan.service.BlogService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/blog")
 public class BlogController {
+
     @Autowired
     BlogService blogService;
 
@@ -41,13 +38,25 @@ public class BlogController {
     }
 
     @ApiOperation(value = "添加文章")
-    @GetMapping("/add")
+    @PostMapping("/add")
     public Result AddArticle(@RequestBody Blog blog){
+        System.out.println(blog);
        boolean add = blogService.saveOrUpdate(blog);
         if(add){
             return Result.Success("添加成功");
         }else{
             return Result.Fail("添加失败");
+        }
+    }
+
+    @ApiOperation(value = "删除文章")
+    @DeleteMapping("/delete")
+    public Result DeleteArticle(@RequestParam Integer id){
+        boolean delete = blogService.removeById(id);
+        if(delete){
+            return Result.Success("删除成功");
+        }else{
+            return Result.Fail("删除失败");
         }
     }
 

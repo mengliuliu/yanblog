@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author yhf
- * @since 2021-08-28
+ * @since 2021-09-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -33,6 +33,8 @@ public class Blog implements Serializable {
     private String title;
 
     private String description;
+
+    private String coverImg;
 
     private String content;
 

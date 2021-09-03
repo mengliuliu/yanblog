@@ -3,8 +3,8 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import './styles/normalize.css';
-import 'antd/dist/antd.css'; 
-import {Switch, Route ,HashRouter} from "react-router-dom";
+import 'antd/dist/antd.css';
+import { Switch, Route, HashRouter } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import routes from 'router/routes';
 import { GlobalLoadingProvider, GlobalLoadingContext } from 'contexts/globalLoading';
@@ -26,7 +26,6 @@ const App: React.FC = () => {
             ))}
           </Switch>
         </HashRouter>
-
       </Layout>
     </>
   );
@@ -34,11 +33,9 @@ const App: React.FC = () => {
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <GlobalLoadingProvider>
-      <App />
-    </GlobalLoadingProvider>
-  </React.StrictMode>,
+  <GlobalLoadingProvider>
+    <App />
+  </GlobalLoadingProvider>,
   document.getElementById('root')
 );
 
