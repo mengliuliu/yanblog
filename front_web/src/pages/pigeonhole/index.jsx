@@ -1,7 +1,7 @@
 
 const Pigeonhole = () => {
     return (
-       <div>归档</div>
+        <div>归档</div>
     )
 }
 

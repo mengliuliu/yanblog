@@ -1,4 +1,4 @@
-import './index.scss'
+import styled from 'styled-components'
 
 const Project = () => {
     const listData = [];
@@ -12,10 +12,18 @@ const Project = () => {
         });
     }
     return (
-        <div>
-            项目 
-         </div>
+        <Box>
+            项目
+        </Box>
     )
 }
+
+const Box = styled.div`
+    .project_item{
+        // box-shadow: 0px 0px 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+`
 
 export default Project

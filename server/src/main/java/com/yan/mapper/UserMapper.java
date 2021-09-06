@@ -1,5 +1,7 @@
 package com.yan.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yan.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -12,5 +14,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2021-08-28
  */
 public interface UserMapper extends BaseMapper<User> {
-
+    IPage<User> selectPageVo(Page<?> page, Integer state);
 }

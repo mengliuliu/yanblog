@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -57,6 +58,17 @@ public class BlogController {
             return Result.Success("删除成功");
         }else{
             return Result.Fail("删除失败");
+        }
+    }
+
+    @ApiOperation(value = "查看文章")
+    @GetMapping("/detail")
+    public Result getBlogDetail(@RequestParam Integer id){
+        Blog blog = blogService.getById(id);
+        if(blog != null){
+            return Result.Success(blog);
+        }else{
+            return Result.Fail("查询失败");
         }
     }
 
