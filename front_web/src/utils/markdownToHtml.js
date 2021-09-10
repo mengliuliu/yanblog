@@ -1,29 +1,56 @@
-import marked from "marked";
-import hljs from 'highlight.js'
 
-marked.setOptions({
-    renderer: new marked.Renderer(),
-    highlight: function (code) {
-        return hljs.highlightAuto(code).value;
-    },
-    gfm: true, // 允许 Git Hub标准的markdown.
-    pedantic: false, // 不纠正原始模型任何的不良行为和错误（默认为false）
-    sanitize: false, // 对输出进行过滤（清理），将忽略任何已经输入的html代码（标签）
-    tables: true, // 允许支持表格语法（该选项要求 gfm 为true）
-    breaks: false, // 允许回车换行（该选项要求 gfm 为true）
-    smartLists: true, // 使用比原生markdown更时髦的列表
-    smartypants: false, // 使用更为时髦的标点
-})
+import styled from 'styled-components';
+import 'github-markdown-css'
+import markdownItAnchor from 'markdown-it-anchor'
+import markdownItTocDoneRight from 'markdown-it-toc-done-right'
+
+var hljs = require('highlight.js'); // https://highlightjs.org/
+var string = require("string");
+let navHtml = null
+
+function legacySlugify(s) {
+    return string(s).slugify().toString();
+}
+// Actual default values
+var md = require('markdown-it')({
+    html: true,
+    highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+            try {
+                return hljs.highlight(str, { language: lang }).value;
+            } catch (__) { }
+        }
+        return ''; // use external default escaping
+    }
+}).use(markdownItAnchor, { permalink: true, permalinkBefore: true, permalinkSymbol: '📎' })
+    .use(markdownItTocDoneRight, {
+        callback: (html, ast) => {
+            navHtml = html
+        }
+    })
 
 const MarkDownView = (props) => {
     const { content } = props
-    const html = marked(content.content)
-    console.log(html);
+    var result = md.render(content.content);
+    console.log(result);
     return (
-        <div dangerouslySetInnerHTML={{ __html: html }}>
-
-        </div>
+        <Box>
+            <div dangerouslySetInnerHTML={{ __html: result }} className='markdown-body content'></div>
+            <div className="markdown-body nav" dangerouslySetInnerHTML={{ __html: navHtml }}></div>
+        </Box>
     )
 }
+
+const Box = styled.div`
+    margin-top: 20px;
+    display: flex;
+    .content{
+        flex: 1;
+    }
+    .nav{
+        width: 250px;
+    }
+`
+
 
 export default MarkDownView;

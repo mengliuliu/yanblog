@@ -2661,6 +2661,11 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.nlark.com/argparse/download/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
+
 aria-query@^4.2.2:
   version "4.2.2"
   resolved "https://registry.npm.taobao.org/aria-query/download/aria-query-4.2.2.tgz#0d2ca6c9aceb56b8977e9fed6aed7e15bbd2f83b"
@@ -4899,6 +4904,11 @@ entities@^2.0.0:
   resolved "https://registry.nlark.com/entities/download/entities-2.2.0.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fentities%2Fdownload%2Fentities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
   integrity sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=
 
+entities@~2.1.0:
+  version "2.1.0"
+  resolved "https://registry.nlark.com/entities/download/entities-2.1.0.tgz#992d3129cf7df6870b96c57858c249a120f8b8b5"
+  integrity sha1-mS0xKc999ocLlsV4WMJJoSD4uLU=
+
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.8"
   resolved "https://registry.nlark.com/errno/download/errno-0.1.8.tgz#8bb3e9c7d463be4976ff888f76b4809ebc2e811f"
@@ -5966,6 +5976,11 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.nlark.com/get-value/download/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+
+github-markdown-css@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npm.taobao.org/github-markdown-css/download/github-markdown-css-4.0.0.tgz#be9f4caf7a389228d4c368336260ffc909061f35"
+  integrity sha1-vp9Mr3o4kijUw2gzYmD/yQkGHzU=
 
 glob-parent@^3.1.0:
   version "3.1.0"
@@ -7903,6 +7918,13 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npm.taobao.org/lines-and-columns/download/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
+linkify-it@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.nlark.com/linkify-it/download/linkify-it-3.0.2.tgz#f55eeb8bc1d3ae754049e124ab3bb56d97797fb8"
+  integrity sha1-9V7ri8HTrnVASeEkqzu1bZd5f7g=
+  dependencies:
+    uc.micro "^1.0.1"
+
 lint-staged@^9.5.0:
   version "9.5.0"
   resolved "https://registry.nlark.com/lint-staged/download/lint-staged-9.5.0.tgz?cache=0&sync_timestamp=1628228209192&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flint-staged%2Fdownload%2Flint-staged-9.5.0.tgz#290ec605252af646d9b74d73a0fa118362b05a33"
@@ -8240,6 +8262,32 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.nlark.com/markdown-escapes/download/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha1-yVQV70UUmddgK5EJXzyOiXX3hTU=
 
+markdown-it-anchor@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.nlark.com/markdown-it-anchor/download/markdown-it-anchor-8.3.0.tgz?cache=0&sync_timestamp=1630012724517&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmarkdown-it-anchor%2Fdownload%2Fmarkdown-it-anchor-8.3.0.tgz#9e1a71766f778c382e5b6d3808d8c4d3a3b4ae30"
+  integrity sha1-nhpxdm93jDguW204CNjE06O0rjA=
+
+markdown-it-deflist@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/markdown-it-deflist/download/markdown-it-deflist-2.1.0.tgz#50d7a56b9544cd81252f7623bd785e28a8dcef5c"
+  integrity sha1-UNela5VEzYElL3YjvXheKKjc71w=
+
+markdown-it-toc-done-right@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/markdown-it-toc-done-right/download/markdown-it-toc-done-right-4.2.0.tgz#3ccdce22d5022ffae7b991d07261b1b1de5459d0"
+  integrity sha1-PM3OItUCL/rnuZHQcmGxsd5UWdA=
+
+markdown-it@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.nlark.com/markdown-it/download/markdown-it-12.2.0.tgz?cache=0&sync_timestamp=1627928755354&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmarkdown-it%2Fdownload%2Fmarkdown-it-12.2.0.tgz#091f720fd5db206f80de7a8d1f1a7035fd0d38db"
+  integrity sha1-CR9yD9XbIG+A3nqNHxpwNf0NONs=
+  dependencies:
+    argparse "^2.0.1"
+    entities "~2.1.0"
+    linkify-it "^3.0.1"
+    mdurl "^1.0.1"
+    uc.micro "^1.0.5"
+
 markdown-table@^1.1.0:
   version "1.1.3"
   resolved "https://registry.nlark.com/markdown-table/download/markdown-table-1.1.3.tgz#9fcb69bcfdb8717bfd0398c6ec2d93036ef8de60"
@@ -8280,6 +8328,11 @@ mdn-data@2.0.4:
   version "2.0.4"
   resolved "https://registry.nlark.com/mdn-data/download/mdn-data-2.0.4.tgz?cache=0&sync_timestamp=1629479607864&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmdn-data%2Fdownload%2Fmdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
   integrity sha1-aZs8OKxvHXKAkaZGULZdOIUC/Vs=
+
+mdurl@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/mdurl/download/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
+  integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -11737,6 +11790,11 @@ string.prototype.trimstart@^1.0.4:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
 
+string@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.npm.taobao.org/string/download/string-3.3.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstring%2Fdownload%2Fstring-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
+  integrity sha1-XqIRzZLSKOGEKUmQpsyXs2anfLA=
+
 string_decoder@^1.0.0, string_decoder@^1.1.1:
   version "1.3.0"
   resolved "https://registry.nlark.com/string_decoder/download/string_decoder-1.3.0.tgz#42f114594a46cf1a8e30b0a84f56c78c3edac21e"
@@ -12429,6 +12487,11 @@ typescript@^4.1.3:
   version "4.4.2"
   resolved "https://registry.nlark.com/typescript/download/typescript-4.4.2.tgz?cache=0&sync_timestamp=1630653919752&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.2.tgz#6d618640d430e3569a1dfb44f7d7e600ced3ee86"
   integrity sha1-bWGGQNQw41aaHftE99fmAM7T7oY=
+
+uc.micro@^1.0.1, uc.micro@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.nlark.com/uc.micro/download/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
+  integrity sha1-nEEagCpAmpH8bPdAgbq6NLJEmaw=
 
 unbox-primitive@^1.0.1:
   version "1.0.1"

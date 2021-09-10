@@ -1,11 +1,14 @@
+
 import { useState, useRef } from 'react'
 import { Form, Input, Button, message } from 'antd'
 import styled from 'styled-components'
-// 引入编辑器样式
-import 'braft-editor/dist/index.css'
-// 引入编辑器组件
-import BraftEditor from 'braft-editor'
 import BlogModuleApi from 'api/blog'
+import MdEditor from 'react-markdown-editor-lite'; 
+import 'react-markdown-editor-lite/lib/index.css';
+
+const MarkdownIt = require('markdown-it')
+
+const mdParser = new MarkdownIt();
 
 const AddOrEditForm: React.FC<any> = () => {
     const [content, setContent] = useState<any>('')
@@ -16,8 +19,9 @@ const AddOrEditForm: React.FC<any> = () => {
             .then(res => {
                 res.userId = 1
                 res.content = content;
+                console.info(res)
                 BlogModuleApi.addBlog(res)
-                    .then((data:any) => {
+                    .then((data: any) => {
                         message.success(data.message)
                         window.location.href = '#/blogs'
                     })
@@ -28,6 +32,13 @@ const AddOrEditForm: React.FC<any> = () => {
 
     const handChange = (value: any) => {
         setContent(value.toHTML())
+    }
+
+    // Finish!
+    const handleEditorChange = (html: any, text: any) => {
+        // console.info('handleEditorChange', html, text)
+        console.info(html.text)
+        setContent(html.text)
     }
 
     return (
@@ -65,11 +76,9 @@ const AddOrEditForm: React.FC<any> = () => {
                     name='content'
                 >
                     <div className='content'>
-                        <BraftEditor
-                            ref={editBox}
-                            value={content}
-                            onChange={handChange}
-                        />
+                        <MdEditor style={{ height: '500px' }} 
+                        renderHTML={text => mdParser.render(text)} 
+                        onChange={handleEditorChange} />
                     </div>
                 </Form.Item>
                 <div className="btn">

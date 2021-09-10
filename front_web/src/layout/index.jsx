@@ -17,7 +17,7 @@ const BasicLayout = (props) => {
 
 const Box = styled.div`
 	.container{
-		height: 100vh;
+		/* height: 100vh; */
 		background-color: #fff;
 		box-shadow: 0px 0px 5px 0px #999;
 	}	
