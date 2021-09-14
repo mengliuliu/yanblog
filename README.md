@@ -1,15 +1,10 @@
 ## 环境
-
-mysql
-
-redis
-
-node 10+
-
-jdk 8
+- node 12.5.0
 
 ## 启动方式
+``` javascript
+//解压目录下的node_modules.zip 方式1 
+yarn  //安装node 依赖 方式2
 
-启动redis： redis-server
-
-略
+yarn start //启动
+```
