@@ -8,3 +8,7 @@ yarn  //安装node 依赖 方式2
 
 yarn start //启动
 ```
+
+## 相关地址
+- 后端： https://github.com/1315007322/yanblog_server
+- 后台管理web：https://github.com/1315007322/yanblog_Admin
